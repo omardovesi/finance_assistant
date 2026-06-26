@@ -1,0 +1,111 @@
+W0625 12:41:01.776000 17604 venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   1%|          | 2/291 [00:00<00:27, 10.43it/s]Loading weights:   4%|▍         | 13/291 [00:00<00:05, 51.64it/s]Loading weights:  11%|█         | 31/291 [00:00<00:02, 91.24it/s]Loading weights:  16%|█▌        | 46/291 [00:00<00:02, 106.49it/s]Loading weights:  20%|██        | 59/291 [00:00<00:02, 113.57it/s]Loading weights:  25%|██▌       | 73/291 [00:00<00:01, 118.40it/s]Loading weights:  31%|███▏      | 91/291 [00:00<00:01, 132.40it/s]Loading weights:  36%|███▌      | 105/291 [00:00<00:01, 131.92it/s]Loading weights:  41%|████      | 119/291 [00:01<00:01, 123.30it/s]Loading weights:  46%|████▌     | 134/291 [00:01<00:01, 124.03it/s]Loading weights:  51%|█████     | 149/291 [00:01<00:01, 129.11it/s]Loading weights:  56%|█████▌    | 163/291 [00:01<00:01, 123.96it/s]Loading weights:  62%|██████▏   | 179/291 [00:01<00:00, 128.37it/s]Loading weights:  67%|██████▋   | 194/291 [00:01<00:00, 133.53it/s]Loading weights:  71%|███████▏  | 208/291 [00:01<00:00, 123.58it/s]Loading weights:  77%|███████▋  | 224/291 [00:01<00:00, 126.02it/s]Loading weights:  82%|████████▏ | 238/291 [00:02<00:00, 128.85it/s]Loading weights:  87%|████████▋ | 252/291 [00:02<00:00, 120.19it/s]Loading weights:  91%|█████████ | 265/291 [00:02<00:00, 118.22it/s]Loading weights:  96%|█████████▌| 278/291 [00:02<00:00, 119.03it/s]Loading weights: 100%|██████████| 291/291 [00:02<00:00, 121.65it/s]
+Unsloth: Dropout = 0 is supported for fast patching. You are using dropout = 0.05.
+Unsloth will patch all other layers, except LoRA matrices, causing a performance hit.
+Unsloth 2026.6.9 patched 32 layers with 0 QKV layers, 0 O layers and 0 MLP layers.
+Unsloth: Tokenizing ["text"]:   0%|          | 0/450 [00:00<?, ? examples/s]Unsloth: Tokenizing ["text"]: 100%|██████████| 450/450 [00:00<00:00, 754.47 examples/s]Unsloth: Tokenizing ["text"]: 100%|██████████| 450/450 [00:00<00:00, 746.22 examples/s]
+Unsloth: Tokenizing ["text"]:   0%|          | 0/50 [00:00<?, ? examples/s]Unsloth: Tokenizing ["text"]: 100%|██████████| 50/50 [00:00<00:00, 864.37 examples/s]
+==((====))==  Unsloth - 2x faster free finetuning | Num GPUs used = 1
+   \\   /|    Num examples = 450 | Num Epochs = 3 | Total steps = 171
+O^O/ \_/ \    Batch size per device = 2 | Gradient accumulation steps = 4
+\        /    Data Parallel GPUs = 1 | Total batch size (2 x 4 x 1) = 8
+ "-____-"     Trainable parameters = 41,943,040 of 7,283,675,136 (0.58% trained)
+  0%|          | 0/171 [00:00<?, ?it/s]`use_return_dict` is deprecated! Use `return_dict` instead!
+Traceback (most recent call last):
+  File "C:\Users\doves\finance-assistant\finetune.py", line 237, in <module>
+    trainer_stats = trainer.train()
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\trainer.py", line 616, in _train_with_reset
+    return _orig_train(*train_args, **train_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\unsloth_compiled_cache\UnslothSFTTrainer.py", line 95, in wrapper
+    output = f(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\transformers\trainer.py", line 1424, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 87, in _fast_inner_training_loop
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\transformers\trainer.py", line 1734, in _run_epoch
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\unsloth_compiled_cache\UnslothSFTTrainer.py", line 1285, in training_step
+    return super().training_step(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 40, in _unsloth_training_step
+  File "C:\Users\doves\finance-assistant\unsloth_compiled_cache\UnslothSFTTrainer.py", line 1274, in compute_loss
+    outputs = super().compute_loss(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\models\_utils.py", line 2433, in _unsloth_pre_compute_loss
+    outputs = self._old_compute_loss(model, inputs, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 41, in compute_loss
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\accelerate\utils\operations.py", line 823, in forward
+    return model_forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\accelerate\utils\operations.py", line 811, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\amp\autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\_compile.py", line 51, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\_dynamo\eval_frame.py", line 838, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\models\llama.py", line 1598, in PeftModel_fast_forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\peft\tuners\tuners_utils.py", line 330, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\models\mistral.py", line 251, in MistralForCausalLM_fast_forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\models\llama.py", line 1183, in LlamaModel_fast_forward
+    layer_outputs = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\transformers\modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\models\llama.py", line 813, in LlamaDecoderLayer_fast_forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+                                                          ^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\models\mistral.py", line 139, in MistralAttention_fast_forward
+    A = run_attention(config = attention_config, context = context, Q = Q, K = K, V = V)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\doves\finance-assistant\venv\Lib\site-packages\unsloth\utils\attention_dispatch.py", line 293, in run_attention
+    out = scaled_dot_product_attention(Q, K, V, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 30.00 MiB. GPU 0 has a total capacity of 7.96 GiB of which 0 bytes is free. Of the allocated memory 13.95 GiB is allocated by PyTorch, and 233.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

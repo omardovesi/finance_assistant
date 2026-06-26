@@ -1,0 +1,25 @@
+# Model weights & outputs
+finance-assistant-q4/
+finance-assistant-q4_gguf/
+finance-model-lora/
+finance-model-merged/
+finance-model-output/
+*.gguf
+
+# External tools
+llama.cpp/
+
+# Cache & environment
+unsloth_compiled_cache/
+venv/
+__pycache__/
+*.pyc
+
+# Large data files
+finance_data.jsonl
+
+# Log files
+training.txt
+training_errors.txt
+export_gguf.txt
+merge.txt
